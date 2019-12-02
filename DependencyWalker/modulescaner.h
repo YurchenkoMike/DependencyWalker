@@ -4,14 +4,14 @@
 #include <QObject>
 #include <QDir>
 #include <QFileInfo>
-#include <QFileInfoList>
+#include <QDebug>
 
 #include "module.h"
 
 class ModuleScaner
 {
 public:
-    ModuleScaner(const QString& scan_dir );
+    ModuleScaner(const QString& dirName );
 
     void scan_dir();
     void check_file(const QString filename);
@@ -19,7 +19,11 @@ public:
     QString moduleDir_pth;
     QStringList list_files;
 
+    QFileInfoList info_list;
+
     QDir current_dir;
+
+    QList<Module*> modules;
 
 };
 
